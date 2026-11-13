@@ -1,0 +1,284 @@
+.kerojet-slider {
+  --slider-accent: #fa4318;
+  --slider-ink: #101214;
+  position: relative;
+  isolation: isolate;
+  min-height: 990px;
+  overflow: hidden;
+  color: #fff;
+  background: #101214;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
+}
+
+.kerojet-slider__track,
+.kerojet-slider__slide {
+  position: absolute;
+  inset: 0;
+}
+
+.kerojet-slider__slide {
+  display: grid;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.015);
+  transition: opacity 650ms ease, transform 900ms ease, visibility 0s linear 650ms;
+}
+
+.kerojet-slider__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition-delay: 0s;
+}
+
+.kerojet-slider__image,
+.kerojet-slider__wash {
+  position: absolute;
+  inset: 0;
+}
+
+.kerojet-slider__ornaments {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 430px;
+  height: 305px;
+  pointer-events: none;
+}
+
+.kerojet-slider__shape {
+  position: absolute;
+  display: block;
+  height: auto;
+  object-fit: contain;
+}
+
+.kerojet-slider__shape--gray {
+  top: 53px;
+  left: 34px;
+  width: 63px;
+  height: 86px;
+  opacity: .42;
+  filter: grayscale(1) brightness(2.2);
+}
+
+.kerojet-slider__shape--yellow {
+  top: 207px;
+  left: 74px;
+  width: 158px;
+  height: 117px;
+  clip-path: polygon(0 0, 100% 0, 100% 58%, 82% 48%, 82% 100%, 0 72%);
+}
+
+.kerojet-slider__shape--red {
+  top: 165px;
+  left: 75px;
+  width: 253px;
+  height: 223px;
+  clip-path: polygon(0 0, 83% 27%, 83% 100%, 35% 100%, 0 72%);
+}
+
+.kerojet-slider__line {
+  position: absolute;
+  top: 157px;
+  left: 30px;
+  width: 245px;
+  height: 2px;
+  background: #fa4318;
+  transform: rotate(28deg);
+  transform-origin: left center;
+}
+
+.kerojet-slider__orb {
+  position: absolute;
+  top: 358px;
+  left: 210px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #f36b25;
+  opacity: .82;
+}
+
+.kerojet-slider__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.kerojet-slider__wash {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(7, 9, 11, .87) 0%, rgba(7, 9, 11, .68) 38%, rgba(7, 9, 11, .17) 100%),
+    linear-gradient(0deg, rgba(7, 9, 11, .22), transparent 50%);
+}
+
+.kerojet-slider__content {
+  position: relative;
+  z-index: 2;
+  width: min(1240px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: 92px 0 110px;
+}
+
+.kerojet-slider__eyebrow {
+  margin: 0 0 16px;
+  color: rgba(255, 255, 255, .62);
+  font-size: clamp(24px, 3.3vw, 48px);
+  font-weight: 700;
+  letter-spacing: -.04em;
+  line-height: 1;
+}
+
+.kerojet-slider__title {
+  max-width: 760px;
+  margin: 0 0 22px;
+  color: #fff;
+  font-size: clamp(40px, 5.3vw, 76px);
+  font-weight: 700;
+  letter-spacing: -.055em;
+  line-height: 1.12;
+}
+
+.kerojet-slider__description {
+  max-width: 670px;
+  margin: 0 0 34px;
+  color: rgba(255, 255, 255, .9);
+  font-size: clamp(15px, 1.35vw, 19px);
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+.kerojet-slider__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 23px;
+  color: #fff;
+  background: var(--slider-accent);
+  border: 1px solid var(--slider-accent);
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.kerojet-slider__cta:hover,
+.kerojet-slider__cta:focus-visible {
+  color: #fff;
+  background: #d93412;
+  border-color: #d93412;
+  transform: translateY(-2px);
+}
+
+.kerojet-slider__controls {
+  position: absolute;
+  z-index: 4;
+  right: 48px;
+  top: 50%;
+  bottom: auto;
+  display: flex;
+  flex-direction: column !important;
+  align-items: center;
+  gap: 8px;
+  transform: translateY(-50%);
+}
+
+.kerojet-slider__arrow,
+.kerojet-slider__dot {
+  appearance: none;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(10, 12, 14, .58);
+  border: 1px solid rgba(255, 255, 255, .32);
+}
+
+.kerojet-slider__arrow {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  font-size: 26px;
+  line-height: 1;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.kerojet-slider__arrow:hover,
+.kerojet-slider__arrow:focus-visible {
+  background: var(--slider-accent);
+  border-color: var(--slider-accent);
+}
+
+.kerojet-slider__dots {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: 28px;
+  display: flex;
+  gap: 9px;
+  transform: translateX(-50%);
+}
+
+.kerojet-slider__dot {
+  width: 30px;
+  height: 3px;
+  padding: 0;
+  border: 0;
+  background: rgba(255, 255, 255, .48);
+  transition: width 180ms ease, background-color 180ms ease;
+}
+
+.kerojet-slider__dot[aria-current="true"] {
+  width: 52px;
+  background: var(--slider-accent);
+}
+
+.kerojet-slider__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.kerojet-slider :focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 1024px) {
+  .kerojet-slider { min-height: 768px; }
+  .kerojet-slider__content { width: min(778px, calc(100% - 64px)); }
+  .kerojet-slider__controls { right: 32px; }
+  .kerojet-slider__dots { bottom: 24px; }
+}
+
+@media (max-width: 767px) {
+  .kerojet-slider { min-height: 600px; }
+  .kerojet-slider__content {
+    width: calc(100% - 48px);
+    padding: 44px 0 116px;
+  }
+  .kerojet-slider__image { object-position: 62% center; }
+  .kerojet-slider__wash { background: linear-gradient(90deg, rgba(7, 9, 11, .86), rgba(7, 9, 11, .36)); }
+  .kerojet-slider__description { line-height: 1.6; }
+  .kerojet-slider__controls { right: 18px; }
+  .kerojet-slider__dots { bottom: 20px; }
+  .kerojet-slider__arrow { width: 40px; height: 40px; }
+  .kerojet-slider__ornaments { transform: scale(.72); transform-origin: top left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kerojet-slider__slide,
+  .kerojet-slider__cta,
+  .kerojet-slider__arrow,
+  .kerojet-slider__dot { transition: none; }
+}
